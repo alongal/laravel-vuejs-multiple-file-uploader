@@ -43,6 +43,7 @@
                             <div class="panel-heading">Upload Your Receipts</div>
                             <div class="panel-body">
                                 <form action="/" method="post" enctype="multipart/form-data">
+                                    @csrf
                                     <div class="form-group">
                                         <label>Title</label>
                                         <input type="text" name="title" class="form-control">
