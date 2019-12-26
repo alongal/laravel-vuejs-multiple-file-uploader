@@ -17,6 +17,11 @@
                 padding-top: 20px;
                 background: #f7f7f7;
             }
+
+            #images {
+                background: #eee;
+                padding: 20px 0;
+            }
         </style>
     </head>
     <body>
@@ -37,7 +42,33 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">Upload Your Receipts</div>
                             <div class="panel-body">
-                                <form action="/" method="post"></form>
+                                <form action="/" method="post" enctype="multipart/form-data">
+                                    <div class="form-group">
+                                        <label>Title</label>
+                                        <input type="text" name="title" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Image</label>
+                                        <input type="file" name="filename">
+                                    </div>
+                                    <div class="form-group">
+                                        <button class="btn btn-success" type="submit">Upload</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="images">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="thumbnail">
+                            <img src="https://via.placeholder.com/450x300" alt="">
+                            <div class="caption">
+                                <h3>Image Title</h3>
                             </div>
                         </div>
                     </div>
