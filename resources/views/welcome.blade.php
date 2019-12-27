@@ -42,6 +42,16 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">Upload Your Receipts</div>
                             <div class="panel-body">
+                                @if ($errors->any())
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            @foreach($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
+
                                 <form action="/" method="post" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group">
@@ -50,7 +60,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Image</label>
-                                        <input type="file" name="filename">
+                                        <input type="file" name="file_name">
                                     </div>
                                     <div class="form-group">
                                         <button class="btn btn-success" type="submit">Upload</button>

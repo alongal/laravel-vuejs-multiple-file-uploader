@@ -13,6 +13,10 @@ class ImageController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'file_name' => 'image|mimes:jpg,jpeg,png,gif,bmp',
+            'title' => 'required'
+        ]);
         dd('ready to upload');
     }
 }
