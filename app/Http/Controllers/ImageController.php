@@ -16,7 +16,7 @@ class ImageController extends Controller
     {
         $request->validate([
             'file_name' => 'image|mimes:jpg,jpeg,png,gif,bmp',
-            'title' => 'required'
+            'title' => 'nullable|string'
         ]);
 
         $image = new Image();
@@ -24,7 +24,7 @@ class ImageController extends Controller
         $image->file_name = $this->uploadFile($request);
         $image->save();
 
-        return redirect('/')->with('message', 'Your image successfully uploaded!');
+        return redirect('/')->with('message', 'Your receipt successfully uploaded!<br/>Thank you so much 🤗');
     }
 
     protected function uploadFile($request)

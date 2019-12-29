@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>Laravel</title>
+        <title>Receipt Upload</title>
 
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         <style media="screen">
@@ -29,7 +29,7 @@
             <div class="container">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="#">
-                        My Images
+                        My Receipts
                     </a>
                 </div>
             </div>
@@ -40,7 +40,7 @@
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3">
                         <div class="panel panel-default">
-                            <div class="panel-heading">Upload Your Receipts</div>
+                            <div class="panel-heading">Upload Your Receipt</div>
                             <div class="panel-body">
                                 @if ($errors->any())
                                     <div class="alert alert-danger">
@@ -52,13 +52,13 @@
                                     </div>
                                 @elseif (session('message'))
                                     <div class="alert alert-info">
-                                        {{ session('message') }}
+                                        {!! session('message') !!}
                                     </div>
                                 @endif
 
                                 <form action="/" method="post" enctype="multipart/form-data">
                                     @csrf
-                                    <div class="form-group">
+                                    <div class="form-group" hidden>
                                         <label>Title</label>
                                         <input type="text" name="title" class="form-control">
                                     </div>
@@ -76,7 +76,7 @@
                 </div>
             </div>
         </section>
-        <section id="images">
+        <section id="images" hidden>
             <div class="container">
                 <div class="row">
                     <div class="col-md-4">
