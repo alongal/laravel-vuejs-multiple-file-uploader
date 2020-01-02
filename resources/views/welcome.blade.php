@@ -58,13 +58,9 @@
 
                                 <form action="/" method="post" enctype="multipart/form-data">
                                     @csrf
-                                    <div class="form-group" hidden>
-                                        <label>Title</label>
-                                        <input type="text" name="title" class="form-control">
-                                    </div>
                                     <div class="form-group">
                                         <label>Image</label>
-                                        <input type="file" name="file_name">
+                                        <input type="file" name="file_name[]" multiple>
                                     </div>
                                     <div class="form-group">
                                         <button class="btn btn-success" type="submit">Upload</button>
@@ -76,17 +72,24 @@
                 </div>
             </div>
         </section>
-        <section id="images" hidden>
+        <section id="images">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4">
-                        <div class="thumbnail">
-                            <img src="https://via.placeholder.com/450x300" alt="">
-                            <div class="caption">
-                                <h3>Image Title</h3>
+                    @if ($images->count() < 1)
+                        <div class="alert alert-warning">
+                            You have no images
+                        </div>
+                    @endif
+                    @foreach ($images as $image)
+                        <div class="col-md-4">
+                            <div class="thumbnail">
+                                <img src="{{ $image->src }}" alt="">
+                                <div class="caption">
+                                    <h3>{{ $image->title }}</h3>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </section>
